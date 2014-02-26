@@ -1,0 +1,101 @@
+% -*- coding:utf-8 -*-
+%% start of file `template_en.tex'.
+%% Copyright 2006-1008 Xavier Danaux (xdanaux@gmail.com).
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License version 1.3c,
+% available at http://www.latex-project.org/lppl/.
+\documentclass[10pt,a4paper,sans]{moderncv}   % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
+
+\usepackage{fontspec,xunicode}
+\setmainfont[BoldFont=Microsoft YaHei]{SimSun}
+\usepackage[slantfont,boldfont]{xeCJK}
+\usepackage{xcolor}                 % replace by the encoding you are using
+\setCJKmainfont[BoldFont=Microsoft YaHei]{SimSun}
+% moderncv 主题
+\moderncvstyle{classic}                        %
+
+
+\usepackage{booktabs}
+
+% 调整页面出血
+\setlength{\textheight}{30.5cm}
+%\setlength{\parskip}{0\baselineskip}
+\usepackage[scale=0.86]{geometry}
+\setlength{\hintscolumnwidth}{2.8cm}           % 如果你希望改变日期栏的宽度
+
+\linespread{0.9}
+
+
+\firstname{明}
+\familyname{姚}
+\mobile{15124508499}                    % optional, remove the line if not wanted
+\email{wade.hit@gmail.com}                     % optional, remove the line if not wanted
+\extrainfo{github.com/WadeLeng}
+\address{出生年月：1989/10}{哈尔滨工业大学新技术楼522室}
+\photo[60pt]{wade.png}                         % '64pt' is the height the picture must be resized to and 'picture' is the name of the picture file; optional, remove the line if not wanted
+%\nopagenumbers{}   
+% to show numerical labels in the bibliography; only useful if you make citations in your resume
+\makeatletter
+\renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}
+\makeatother
+% uncomment to suppress automatic page numbering for CVs longer than one page
+%----------------------------------------------------------------------------------
+%            content
+%----------------------------------------------------------------------------------
+\begin{document}
+\maketitle
+%\section{个人信息}
+%\cvcomputer{出生年月}{1989/10}{籍贯}{大连}
+%\cvcomputer{地址}{哈尔滨工业大学新技术楼522室}{}{}
+%
+\section{教育背景}
+\cventry{2009.9 至今}{计算机科学与技术学士}{哈尔滨工业大学（H.I.T）}{黑龙江哈尔滨}{}{}
+\section{主要项目经历}
+\subsection{Key-Value-System单机存储系统}
+\cvitem{}{  单机存储1000万条记录，平均大小100KB，单机存储1TB数据，单条最大长度5MB}
+\cventry{2010.9 至 2011.7}{第一次设计}{项目成员}{ 负责索引模块,\underline{磁盘空间管理}}{}{}
+\cvlistitem{项目地址：http://code.google.com/p/smcached}
+
+\cventry{2011.9 至 2012.3}{第二次设计}{项目负责人}{ 负责所有模块设计、编码、测试；HashTree实现索引模块；\underline{应用层buffer设计}；实现持久化操作}{}{}
+\cvlistitem{项目地址：https://github.com/WadeLeng/key-value-system}
+\cvitem{}{插入10GB数据，单条数据大小100KB性能对比（详见github内测试文档）：}
+\cvitem{}{
+%\setlength{\tabcolsep}{4pt}
+\begin{tabular}{llll}
+\toprule
+%\multicolumn{2}{c|c|c|c}{Item} 
+%\cmidrule(r){1-2}
+            &\textbf{\ 顺序写性能\ \ } &\textbf{随机读性能（无buffer）} &\textbf{\ \ \ 随机读性能（500MB buffer）}\\
+\midrule
+第一次设计 &\  200条/秒 & 71条/秒,平均延迟14ms    &  \ \ \ \ -\\
+第二次设计 &\    987条/秒 & 122条/秒,平均延迟6.70ms &\ \  \ 149条/秒,平均延迟6.42ms\\ \bottomrule
+   \end{tabular}}
+
+\cvitem{}{特点：}
+        \cvlistitem{性能与buffer大小有关，相比第一次设计充分利用了内存读写速度快的特点}
+        \cvlistitem{通过多线程异步操作把数据flush到硬盘进行保存，减少用户响应时间}
+        \cvlistitem{索引不保存key值，节省内存开销}
+        \cvlistitem{系统可多次启动，保存/载入上次索引模块在内存中的镜像}
+
+\subsection{FuLL-filesystem}
+\cvitem{2012.4 至 2012.7}{基于leveldb的用户态文件系统}
+        \cvlistitem{ web端使用libevent接口，提供高并发}
+        \cvlistitem{ 本机使用FUSE接口，只读文件系统，方便查看}
+        \cvlistitem{ FUSE Libevent Leveldb}
+\section{实习经历}
+\cvitem{2012.8 至 2012.9}{腾讯科技（深圳）架构平台部 平台开发中心 结构化存储组}
+\section{ACM获奖情况}
+\cvcomputer{2010年}{第四届东北地区四省赛二等奖}{2010年}{第五届黑龙江省赛二等奖第一名}
+\section{社团经历}
+\cvcomputer{2009.9 至 2010.9}{哈工大ACM俱乐部}{2010.9 至今}{哈工大IBM技术俱乐部}
+\section{兴趣专长}
+\cvcomputer{编程语言}{C/C++/python/shell}{操作系统}{Linux}
+%\cvcomputer{编程语言}{python}{操作系统}{Linux}
+\cvcomputer{兴趣}{海量数据存储}{}{}
+
+%\cvlistitem{Item 1}
+%\cvlistitem{Item 2}
+%\cvlistitem[+]{Item 3}            % optional other symbol
+\end{document}
+%% end of file `template_en.tex'.
