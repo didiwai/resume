@@ -43,3 +43,8 @@ nosetests.xml
 
 #mac
 .DS_Store
+
+#tex
+*.aux
+*.log
+*.out
