@@ -24,11 +24,11 @@
 \usepackage[scale=0.86]{geometry}
 \setlength{\hintscolumnwidth}{2.8cm}           % 如果你希望改变日期栏的宽度
 
-\linespread{0.9}
+\linespread{1}
 
 
-\firstname{姚明}
-\familyname{}
+\firstname{姚}
+\familyname{明}
 \mobile{018637367007(非哈尔滨本地号码)}                    % optional, remove the line if not wanted
 \email{yaoming147@163.com}                     % optional, remove the line if not wanted
 \extrainfo{github.com/yaomingshr}
@@ -45,53 +45,47 @@
 %----------------------------------------------------------------------------------
 \begin{document}
 \maketitle
-%\section{个人信息}
-%\cvcomputer{出生年月}{1989/10}{籍贯}{大连}
-%\cvcomputer{地址}{哈尔滨工业大学新技术楼522室}{}{}
-%
+
 \section{教育背景}
-\cventry{2009.9-2013.7}{计算机科学与技术学士}{哈尔滨工业大学（H.I.T）}{山东威
-  海}{}{}
-\cventry{2013.7 至今}{计算机科学与技术硕士}{哈尔滨工业大学（H.I.T）}{黑龙江哈
+\cventry{2009.9-2013.7}{计算机科学与技术学士}{哈尔滨工业大学(HIT.)}{山东威
+  海}{担任班长兼团支书}{}
+\cventry{2013.7 至今}{计算机科学与技术硕士}{哈尔滨工业大学(HIT.)}{黑龙江哈
   尔滨}{}{}
-\section{主要项目经历}
-%\subsection{Key-Value-System单机存储系统}
-%\cvitem{}{  单机存储1000万条记录，平均大小100KB，单机存储1TB数据，单条最大长度5MB}
-\cventry{2013.4-2013.6}{设计算法来从区分图片中的猫和狗}{项目成员}{ 负责索引模块,\underline{磁盘空间管理}}{}{}
-\cvlistitem{项目地址：http://code.google.com/p/smcached}
+%\cvcomputer{英语能力}{CET6}{GRE}{313}
+\section{竞赛、科研与项目经历}
+\cventry{2013.11-2014.1}{Kaggle: Dogs vs. Cats}{}{}{}{}
+\cvlistitem{项目描述：设计算法来分类图片中是狗还是猫}
+\cvlistitem{项目地址：https://github.com/yaomingshr/DogvsCat}
+\cvlistitem{数据描述：训练数据：580MB/25,000张 图片，测试数据：290MB/12,500 张图片}
+\cvlistitem{项目实现概要：利用SIFT来提取特征，获取特征后，采用了Bag-of-Words + SVM。在BOW模型中，在对所有图片的特征点进行KMeans时，数据量太大，内存无法容
+  下，所以将训练数据和测试数据分别分为3份，然后利用分别进行KMeans。BOW模型计算完
+  毕之后，利用SVM进行分类。最后，利用随机森林对结果进行合并。}
 
-\cventry{2011.9 至 2012.3}{第二次设计}{项目负责人}{ 负责所有模块设计、编码、测试；HashTree实现索引模块；\underline{应用层buffer设计}；实现持久化操作}{}{}
-\cvlistitem{项目地址：https://github.com/WadeLeng/key-value-system}
-\cvitem{}{插入10GB数据，单条数据大小100KB性能对比（详见github内测试文档）：}
-\cvitem{}{
-%\setlength{\tabcolsep}{4pt}
-\begin{tabular}{llll}
-\toprule
-%\multicolumn{2}{c|c|c|c}{Item} 
-%\cmidrule(r){1-2}
-            &\textbf{\ 顺序写性能\ \ } &\textbf{随机读性能（无buffer）} &\textbf{\ \ \ 随机读性能（500MB buffer）}\\
-\midrule
-第一次设计 &\  200条/秒 & 71条/秒,平均延迟14ms    &  \ \ \ \ -\\
-第二次设计 &\    987条/秒 & 122条/秒,平均延迟6.70ms &\ \  \ 149条/秒,平均延迟6.42ms\\ \bottomrule
-   \end{tabular}}
+\cventry{2014.2-2014.3}{Kaggle: Loan Default Prediction - Imperial College
+  London}{}{}{}{}
+\cvlistitem{项目描述：利用一笔贷款的相关信息预测其是否会违约;若违约，预测银行损
+  失}
+\cvlistitem{项目地址：https://github.com/lavizhao/loan}
+\cvlistitem{训练数据： 510MB/10W+条 数据，测试数据：1.0GB/21W+条 数据; 每条数据
+  有778个特征属性}
+\cvlistitem{项目实现概要：主要包括数据预处理、分类和回归三部分。数据预处理部分，
+  我们采用规则与统计检验方法（包括互信息和ROC曲线的AUC值）相结合的方法来筛选出对分类最起作用的特征。利用这些特
+  征采用各种分类器（尝试了包括KNN、SVM以及随机森林等方法）来进行分类，判断该笔贷
+  款到底是否会违约，分类结果较好时，再进一步进行回归，即预测违约贷款的损失值。}
 
-\cvitem{}{特点：}
-        \cvlistitem{性能与buffer大小有关，相比第一次设计充分利用了内存读写速度快的特点}
-        \cvlistitem{通过多线程异步操作把数据flush到硬盘进行保存，减少用户响应时间}
-        \cvlistitem{索引不保存key值，节省内存开销}
-        \cvlistitem{系统可多次启动，保存/载入上次索引模块在内存中的镜像}
+\cventry{2013.3-2013.6}{基于轮廓跟踪的CT图像中骨骼边缘检测算法}{}{}{}{}
+\cvlistitem{项目描述：在轮廓跟踪算法的基础上进行改进，扬长避短，获得更好的
+  骨骼边缘}
+\cvlistitem{项目地址：https://github.com/yaomingshr/contour\_trace}
+\cvlistitem{项目实现概要：首先，实现了基础的轮廓跟踪算法。轮廓跟踪的优
+  点在于保证轮廓完整闭合，但是抗噪性较差。之后尝试了利用跟踪虫等方法对轮廓跟踪的
+  结果进行改进，效果一般。由于在CT图像中的噪声被普遍认定为高斯加性噪
+  声，所以采用高斯函数的一阶导数的方法来获取法线方向同时抑制噪声是一种常见方法。
+  我在此便是利用高斯一阶导来修正轮廓跟踪的搜索方向，获得了较好的结果。}
 
-\subsection{FuLL-filesystem}
-\cvitem{2012.4 至 2012.7}{基于leveldb的用户态文件系统}
-        \cvlistitem{ web端使用libevent接口，提供高并发}
-        \cvlistitem{ 本机使用FUSE接口，只读文件系统，方便查看}
-        \cvlistitem{ FUSE Libevent Leveldb}
-\section{实习经历}
-\cvitem{2012.8 至 2012.9}{腾讯科技（深圳）架构平台部 平台开发中心 结构化存储组}
-\section{ACM获奖情况}
-\cvcomputer{2010年}{第四届东北地区四省赛二等奖}{2010年}{第五届黑龙江省赛二等奖第一名}
-\section{社团经历}
-\cvcomputer{2009.9 至 2010.9}{哈工大ACM俱乐部}{2010.9 至今}{哈工大IBM技术俱乐部}
+\section{获奖情况}
+\cvcomputer{2012年}{全美大学生数学建模二等奖}{2013年}{山东省优秀毕业生}
+
 \section{兴趣专长}
 \cvcomputer{编程语言}{C/C++/python/shell}{操作系统}{Linux}
 %\cvcomputer{编程语言}{python}{操作系统}{Linux}
